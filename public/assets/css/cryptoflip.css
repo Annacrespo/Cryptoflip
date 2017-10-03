@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans+Mono');
 
-body {
-  background-image: url("bitcoin03.jpg");
+.bg-img {
+  background-image: url("../images/bitcoin03.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -55,26 +55,20 @@ body {
 /* buttons end here */
 /* chart */
 
-#chart {
-  background-color:#fff;
-  border:1px #000 solid;
-  height:350px;
-}
-
 .game {
   margin:10px;
   height:200px;
+  clear:left;
 }
 
-#developers {
-  text-align: center;
-}
 .img-circle {
   display:inline-block;
   margin:20px 30px 20px 30px;
 }
 
-.page-footer {
-  background-color: #000;
-  margin-bottom:0;
+.footer {
+  position:fixed;
+  bottom:0;
+  width:100%;
+  text-align:center;
 }
