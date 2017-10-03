@@ -46,24 +46,62 @@
             </div>
           </div>
         </div>
-        
-        
+
+
         <!--player plays game -->
         <div class="row">
           <div class="game">
-            <div class="col-sm-2">
-              <!--empty column -->
-            </div>
-            <div class="col-sm-7">
+            <div class="col-sm-8 col-sm-offset-2">
               <!--will display when player signs in-->
               <div class="play">
                 <div class="row">
-                  <div class="col-sm-12">
-                    <ul class="nav nav-tabs">
-                      <li class="nav-item"><a href="#">blah</a></li>
-                      <li class="nav-item"><a href="#">blah</a></li>
-                      <li class="nav-item"><a href="#">blah</a></li>
-                      <li class="nav-item"><a href="#">blah</a></li>
+                  <div class="col-sm-8">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Current Price</th>
+                          <th>Coins Owned</th>
+                          <th>High 24 Hour</th>
+                          <th>Low 24 Hour</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="active currentPrice">124456</td>
+                          <td class="warning coinsOwned">1423</td>
+                          <td class="success highHour">345656</td>
+                          <td class="danger lowHour">354563</td>
+                        </tr
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="bidder col-sm-12 ">
+                    <h3>Coin Bid</h3>
+                    <h4>Balance: 12332155</h4>
+                            <form class="form-inline">
+                            <p>
+                              <div class="form-group">
+                                <label class="sr-only" for="exampleInputAmount"></label>
+                                <div class="input-group">
+                                  <div class="input-group-addon">Ƀ</div>
+                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Number of Coins">
+                                  <div class="input-group-addon">$</div>
+                                </div>
+                              </div>
+                              <button type="submit" class="btn btn-danger">Buy</button>
+                            </p>
+                            <p>
+                              <div class="form-group">
+                                <label class="sr-only" for="exampleInputAmount"></label>
+                                <div class="input-group">
+                                  <div class="input-group-addon">Ƀ</div>
+                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Number of Coins">
+                                  <div class="input-group-addon">$</div>
+                                </div>
+                              </div>
+                              <button type="submit" class="btn btn-success">Sell</button>
+                            </p>
+                            </form>
                   </div>
                 </div>
               </div>
