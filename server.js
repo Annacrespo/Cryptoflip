@@ -1,8 +1,6 @@
-// <<<<<<< HEAD
 global.fetch = require('node-fetch');
 const cc = require('cryptocompare');
 
-// =======
 // *********************************************************************************
 // Server.js - This file is the initial starting point for the Node/Express server.
 // *********************************************************************************
@@ -43,4 +41,7 @@ require("./app/routes/html-routes.js")(app);
     });
 //   });
 
+<<<<<<< HEAD
+=======
 // >>>>>>> 83524b172b9609b515e938e3b1e7c35d851ace7f
+>>>>>>> c93a4e959233e8ce037182d213af37e3ced2def1
