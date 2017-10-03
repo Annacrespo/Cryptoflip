@@ -1,0 +1,25 @@
+Project Requirements
+------------------------------
+Must use Node and Express Web Server
+Must be backed by MySQL db with Sequelize ORM
+Must have both GET and POST routes for retrieving and adding new data
+Must incorporate Basic Testing Framework
+Must be deployed using Heroku (with data)
+Must utilize at least one new library, package, or tech
+Must have a polished frontend/UI
+Must have folder structure that meets MVC Paradigm
+Must meet good quality coding standards (indentation, scoping, naming)
+
+Nice to Haves
+------------------------------
+Utilize Handlebars for Server-Side Templating
+Incorporate Authentication (JSON Web Tokens, Sessions, etc)
+Use an existing public dataset to power the database
+Create a migration strategy (GIT)
+
+
+==========================================
+log whatever fits the requirements for the presentation, we can sort it at the end.
+reference by code line (ex. line 5 for get/post routes)
+
+8. npm package socket.io
