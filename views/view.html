@@ -11,95 +11,92 @@
 
   </head>
   <body>
-      <!--header section -->
+    <!--header section -->
+    <div class="row">
+      <div class="col-md-12 bg-img" id="header">
+        <h1 id="h1">crypto-currency</h1>
+        <div id="login">
+          <a href="#">Sign Up </a> |
+          <a href="#">Sign In</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
       <div class="row">
-        <div class="col-md-12 bg-img" id="header">
-          <h1 id="h1">crypto-currency</h1>
-          <div id="login">
-            <a href="#">Sign Up </a> |
-            <a href="#">Sign In</a>
-          </div>
+        <div class="col-md-2">
+          <ul class="nav flex-md-column">
+            <li class="nav-item justify-content-center" ><button class="btn buttons" id="default-btn">blah</button></li>
+            <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
+            <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
+            <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
+         </ul>
+        </div>
+        <div class="col-md-8">
+          <canvas id="line-chart" width="900" height="500"></canvas>
         </div>
       </div>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2">
-            <ul class="nav flex-md-column">
-              <li class="nav-item justify-content-center" ><button class="btn buttons" id="crypto">blah</button></li>
-              <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
-              <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
-              <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
-            </ul>
-          </div>
-          <div class="col-md-8">
-            <canvas id="line-chart" width="900" height="500"></canvas>
-          </div>
-        </div>
-
         <!--player plays game -->
-        <div class="row">
-          <div class="game">
-            <div class="col-sm-8 col-sm-offset-2">
-              <!--will display when player signs in-->
-              <div class="play">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th>Current Price</th>
-                          <th>Coins Owned</th>
-                          <th>High 24 Hour</th>
-                          <th>Low 24 Hour</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="active currentPrice">124456</td>
-                          <td class="warning coinsOwned">1423</td>
-                          <td class="success highHour">345656</td>
-                          <td class="danger lowHour">354563</td>
-                        </tr
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="bidder col-sm-12 ">
-                    <h3>Coin Bid</h3>
-                    <h4>Balance: 12332155</h4>
-                            <form class="form-inline">
-                            <p>
-                              <div class="form-group">
-                                <label class="sr-only" for="exampleInputAmount"></label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">Ƀ</div>
-                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Number of Coins">
-                                  <div class="input-group-addon">$</div>
-                                </div>
+      <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            <!--will display when player signs in-->
+              <div class="row">
+                <div class="col-sm-8">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>Current Price</th>
+                        <th>Coins Owned</th>
+                        <th>High 24 Hour</th>
+                        <th>Low 24 Hour</th>
+                      </tr>
+                    </thead>
+                  <tbody>
+                    <tr>
+                      <td class="active currentPrice">124456</td>
+                      <td class="warning coinsOwned">1423</td>
+                      <td class="success highHour">345656</td>
+                      <td class="danger lowHour">354563</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              <div class="bidder col-sm-12 ">
+                <h3>Coin Bid</h3>
+                  <h4>Balance: 12332155</h4>
+                    <form class="form-inline">
+                      <p>
+                        <div class="form-group">
+                          <label class="sr-only" for="exampleInputAmount"></label>
+                            <div class="input-group">
+                              <div class="input-group-addon">Ƀ</div>
+                                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Number of Coins">
+                                <div class="input-group-addon">$</div>
                               </div>
-                              <button type="submit" class="btn btn-danger">Buy</button>
-                            </p>
-                            <p>
-                              <div class="form-group">
-                                <label class="sr-only" for="exampleInputAmount"></label>
-                                <div class="input-group">
-                                  <div class="input-group-addon">Ƀ</div>
-                                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="Number of Coins">
-                                  <div class="input-group-addon">$</div>
-                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Buy</button>
+                          </p>
+                          <p>
+                            <div class="form-group">
+                              <label class="sr-only" for="exampleInputAmount"></label>
+                              <div class="input-group">
+                                <div class="input-group-addon">Ƀ</div>
+                                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Number of Coins">
+                                <div class="input-group-addon">$</div>
                               </div>
-                              <button type="submit" class="btn btn-success">Sell</button>
-                            </p>
-                            </form>
+                            </div>
+                            <button type="submit" class="btn btn-success">Sell</button>
+                          </p>
+                    </form>
                   </div>
                 </div>
-              </div>
-            </div>
           </div>
-      </div>    
+      </div>
+    </div>
       <!-- footer begins; information about the developers -->
-      <div class="row">
-        <div class="bg-img footer">
+      <div class="row bg-img">
+        <div class="footer">
           <div class="col-md-12">
             <img class="img-fluid img-circle" src="../public/assets/images/fargin.jpg" width="60px" height="60px"/>
             <img class="img-fluid img-circle" src="../public/assets/images/anna.jpg" width="60px" height="60px"/>
@@ -107,7 +104,7 @@
             <img class="img-fluid img-circle" src="../public/assets/images/phil.jpg" width="60px" height="60px"/>
             <div class="row">
               <div class="col-md-12">
-                <div class="">&copy 2017 CryptoFlip</div>
+                <div id="copyr">&copy 2017 CryptoFlip | <a href="https://github.com/Annacrespo/Cryptoflip" style="color:#fff;">Github</a></div>
               </div>
             </div>
           </div>
