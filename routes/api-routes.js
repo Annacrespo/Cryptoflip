@@ -12,6 +12,10 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname, "../views/view.html"));
 })
 
+app.get("/view-history", function(req, res) {
+  res.sendFile(path.join(__dirname, "../views/history.html"));
+})
+
 app.listen(port, function() {
   console.log("Listening on port " + port);
 })

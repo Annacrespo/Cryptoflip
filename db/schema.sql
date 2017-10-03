@@ -5,7 +5,7 @@ CREATE TABLE currencies
 (
 	id int NOT NULL AUTO_INCREMENT,
 	balance INTEGER NOT NULL,
-    price INTEGER NOT NULL,
+  price INTEGER NOT NULL,
 	coin VARCHAR(20) NOT NULL,
 	PRIMARY KEY (id)
 );
