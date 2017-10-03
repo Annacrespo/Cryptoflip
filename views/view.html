@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>Cryptocurrency Trading Simulation</title>
@@ -6,13 +5,16 @@
     <!-- <script src="https://cdn.bootcss.com/handlebars.js/4.0.10/handlebars.amd.min.js"></script> -->
     <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
     <link rel="stylesheet" type="text/css" href="../public/assets/css/cryptoflip.css">
 
   </head>
   <body>
       <!--header section -->
       <div class="row">
-        <div class="col-sm-12" id="header">
+        <div class="col-md-12 bg-img" id="header">
           <h1 id="h1">crypto-currency</h1>
           <div id="login">
             <a href="#">Sign Up </a> |
@@ -20,109 +22,99 @@
           </div>
         </div>
       </div>
-    <div class="container">
-      <!--news headlines section-->
-      <div class="row">
-        <div class="col-sm-12">
-          <!--streaming news -->
-        </div>
-      </div>
 
-      <!--main body content -->
-      <div class="row">
+      <div class="container">
         <div class="row">
-          <div class="col-sm-2">
-            <ul class="nav flex-sm-column">
+          <div class="col-md-2">
+            <ul class="nav flex-md-column">
               <li class="nav-item justify-content-center" ><button class="btn buttons" id="blah">blah</button></li>
               <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
               <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
               <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
             </ul>
           </div>
-          <div class="col-sm-7">
-            <div id="chartContainer">
-              <!--display realtime data in chart using canvasjs and cryptocurrency api -->
-              <!-- insert canvas js graph -->
-            </div>
+          <div class="col-md-8">
+            <canvas id="line-chart" width="900" height="500"></canvas>
           </div>
         </div>
+<<<<<<< HEAD
+
+=======
         
         
         <!--player plays game -->
+>>>>>>> 958f08e5b37abe8c0842a24cd3f17d2aa2920290
         <div class="row">
-          <div class="game">
-            <div class="col-sm-2">
-              <!--empty column -->
-            </div>
-            <div class="col-sm-7">
-              <!--will display when player signs in-->
-              <div class="play">
-                <div class="row">
-                  <div class="col-sm-12">
-                    <ul class="nav nav-tabs">
-                      <li class="nav-item"><a href="#">blah</a></li>
-                      <li class="nav-item"><a href="#">blah</a></li>
-                      <li class="nav-item"><a href="#">blah</a></li>
-                      <li class="nav-item"><a href="#">blah</a></li>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="col-md-2"></div>
+          <ul class="nav nav-tabs">
+            <li class="nav-item"><a href="#">blah</a></li>
+            <li class="nav-item"><a href="#">blah</a></li>
+            <li class="nav-item"><a href="#">blah</a></li>
+            <li class="nav-item"><a href="#">blah</a></li>
+          </ul>
+          <div class="col-md-10"></div>
         </div>
       </div>
-    </div>
-      <!-- footer begins; information about the developers -->
-    <footer class="page-footer">
-      <div class="container">
-        <div class="row">
-          <div id="developers" class="col-sm-12">
+      <div class="row">
+        <div class="bg-img footer">
+          <div class="col-md-12">
             <img class="img-fluid img-circle" src="../public/assets/images/fargin.jpg" width="60px" height="60px"/>
             <img class="img-fluid img-circle" src="../public/assets/images/anna.jpg" width="60px" height="60px"/>
             <img class="img-fluid img-circle" src="../public/assets/images/jon.jpg" width="60px" height="60px"/>
             <img class="img-fluid img-circle" src="../public/assets/images/phil.jpg" width="60px" height="60px"/>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="footer-copyright">
-        <div class="container text-center">
-            © 2017 Copyright: Cryptoflip
-        </div>
-    </div>
-  </footer>
-    <script type="text/javascript">
-        // var apikey = "d3266758730146dfa84dfa45f1865ad3";
-        var queryURL = "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=830f091ca1eb50be15e19d22fa4a4ee6";
+      <script type="text/javascript">
 
+      function chart() {
+      var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym=BTC&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
 
-        $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).done(function(response) {
-          console.log(response);
-          var dataPoints = [];
-          var data = response.list;
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).done(function(response) {
+        console.log(response);
+        var dataPoints = [];
+        var labels = [];
+        var data = response.Data;
 
-          for (var i = 0; i < data.length; i++) {
-            var x = data[i].wind["speed"];
-            console.log(x);
-            var y = data[i].wind["deg"];
-            dataPoints.push({"x":x, "y":y});
+        for (var i = 0; i < data.length; i++) {
+          var x = moment.unix(data[i].time).format("h:mm:ss");
+          var y = data[i].close;
+          labels.push(x);
+          dataPoints.push(y);
+        }
+
+      new Chart(document.getElementById("line-chart"), {
+        type: 'line',
+          data: {
+            labels: labels,
+            datasets: [{
+              data: dataPoints,
+              label: "Bitcoin",
+              borderColor: "#3e95cd",
+              fill: false
+            }
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Bitcoin Market'
           }
-          console.log(dataPoints);
+        }
+      });
+      })
+    }
 
-          var chart = new CanvasJS.Chart("chartContainer", {
-            title: {
-              text: "Rendering Chart With Datapoints"
-            },
-            data: [{
-              type: "line",
-              dataPoints:dataPoints
-            }]
-          })
-          chart.render();
-        })
-    </script>
+    chart();
+
+    //don't really need this but its exists
+    setInterval(function() {
+      chart();
+    }, 60 * 1000)
+
+      </script>
   </body>
-
-</html>
+  </html>
