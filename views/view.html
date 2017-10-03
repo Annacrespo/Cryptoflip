@@ -22,34 +22,18 @@
       </div>
     </div>
 
-<<<<<<< HEAD
     <div class="container">
       <div class="row">
         <div class="col-md-2">
           <ul class="nav flex-md-column">
-            <li class="nav-item justify-content-center" ><button class="btn buttons" id="default-btn">blah</button></li>
-            <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
-            <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
-            <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">Blah</button></li>
+            <li class="nav-item justify-content-center" ><button class="btn buttons" id="default-btn">NEO</button></li>
+            <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">ETH</button></li>
+            <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">ZEC</button></li>
+            <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">LTC</button></li>
          </ul>
         </div>
         <div class="col-md-8">
           <canvas id="line-chart" width="900" height="500"></canvas>
-=======
-      <div class="container">
-        <div class="row">
-          <div class="col-md-2">
-            <ul class="nav flex-md-column">
-              <li class="nav-item justify-content-center" ><button class="btn buttons" id="NEO">NEO</button></li>
-              <li class="nav-item justify-content-center"><button class="btn buttons" id="ETH">ETH</button></li>
-              <li class="nav-item justify-content-center"><button class="btn buttons" id="ZEC">ZEC</button></li>
-              <li class="nav-item justify-content-center"><button class="btn buttons" id="blah">LTC</button></li>
-            </ul>
-          </div>
-          <div class="col-md-8">
-            <canvas id="line-chart" width="900" height="500"></canvas>
-          </div>
->>>>>>> 7e82497b83674e075629798c762f4f4e6e3da1a3
         </div>
       </div>
 
@@ -129,11 +113,11 @@
       <script type="text/javascript">
       coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
       function chart() {
-          
+
       var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym="+coinArray[0]+"&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
-      
+
 //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
-        
+
       $.ajax({
         url: queryURL,
         method: "GET"
