@@ -18,7 +18,6 @@ module.exports = function(app) {
     Transaction.findAll({}).then(function(results) {
       // results are available to us inside the .then
       res.json(results);
-      console.log("TRANSACTION HISTORY DETAILS======", results);
     });
   });
 
