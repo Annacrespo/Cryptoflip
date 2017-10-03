@@ -1,6 +1,6 @@
 # CryptoFlip
 
-A cryptocurrency trading simulator with real-time price tracking. Real-time market data provided by CryptoCompare's web socket.
+A cryptocurrency trading simulator with real-time price tracking. Real-time market data provided by CryptoCompare's web socket (https://www.cryptocompare.com/api).
 
 ## About
 
