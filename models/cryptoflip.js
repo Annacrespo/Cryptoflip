@@ -1,25 +1,23 @@
 global.fetch = require('node-fetch');
 const cc = require('cryptocompare');
 
+
 // Basic Usage:
-cc.price('BTC', ['USD', 'EUR'])
-.then(prices => {
-  console.log(prices)
-  // -> { USD: 1100.24, EUR: 1039.63 }
-})
-.catch(console.error)
-
-// Passing a single pair of currencies:
-cc.price('BTC', 'USD')
-.then(prices => {
-  console.log(prices)
-  // -> { USD: 1100.24 }
-})
-.catch(console.error)
-
-cc.priceFull(['BTC', 'ETH'], ['USD', 'EUR'])
+cc.priceMulti(['BTC', 'LTC', 'NEO', 'ETH', 'ZEC'], ['USD'])
 .then(prices => {
  console.log(prices)
+ // -> { BTC: { USD: 1114.63, EUR: 1055.82 },
+ //      ETH: { USD: 12.74, EUR: 12.06 } }
+})
+.catch(console.error)
+
+// // Passing a single pair of currencies:
+// cc.priceMulti('BTC', 'USD'), ('LTC', 'USD'), ('NEO', 'USD'), ('ETH', 'USD'), ('ZEC', 'USD')
+// .then(prices => {
+//  console.log(prices)
+//  // -> { BTC: { USD: 1114.63 } }
+// })
+// .catch(console.error)
  // {
  //   BTC: {
  //     USD: {
@@ -48,5 +46,3 @@ cc.priceFull(['BTC', 'ETH'], ['USD', 'EUR'])
  //   },
  //   ETH: ...
  // }
-})
-.catch(console.error)

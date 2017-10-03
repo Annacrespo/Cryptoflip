@@ -50,16 +50,21 @@
 .btn:hover {
   background-color:#000;
   color:#fff;
-}
+}*/
 
 /* buttons end here */
 /* chart */
 
-.game {
-  margin:10px;
-  height:200px;
-  clear:left;
+#chartContainer {
+  height: 485px;
 }
+
+#chart {
+  background-color:#fff;
+  border:1px #000 solid;
+  height:350px;
+}
+
 
 .img-circle {
   display:inline-block;
@@ -67,8 +72,17 @@
 }
 
 .footer {
-  position:fixed;
+  position:relative;
   bottom:0;
   width:100%;
   text-align:center;
+}
+
+#copyr {
+  color:#fff;
+  font-weight:bold;
+}
+
+.bidder {
+  margin-top: 5px;
 }

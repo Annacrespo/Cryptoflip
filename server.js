@@ -11,7 +11,8 @@ var express = require("express");
 var bodyParser = require("body-parser");
 
 // Sets up the Express App
-// =============================================================
+// ===============================
+// ==============================
 var app = express();
 var PORT = process.env.PORT || 8080;
 
@@ -40,3 +41,7 @@ require("./app/routes/html-routes.js")(app);
     });
 //   });
 
+<<<<<<< HEAD
+=======
+// >>>>>>> 83524b172b9609b515e938e3b1e7c35d851ace7f
+>>>>>>> c93a4e959233e8ce037182d213af37e3ced2def1
