@@ -2,7 +2,7 @@
 // =============================================================
 
 var Sequelize = require("sequelize");
-var sequelize = require("../config/transactions.js");
+var sequelize = require("../config/connection.js");
 
 var Transactions = sequelize.define("transactions", {
   currency: {
@@ -22,8 +22,7 @@ var Transactions = sequelize.define("transactions", {
  },
  equityvalue: {
    type: Sequelize.INTEGER
- },
-  timestamps: true
+ }
 });
 // Syncs with DB
 Transactions.sync();
