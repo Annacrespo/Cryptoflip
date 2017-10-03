@@ -8,7 +8,7 @@ cc.price('BTC', ['USD', 'EUR'])
   // -> { USD: 1100.24, EUR: 1039.63 }
 })
 .catch(console.error)
- 
+
 // Passing a single pair of currencies:
 cc.price('BTC', 'USD')
 .then(prices => {
