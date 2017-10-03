@@ -31,7 +31,6 @@ module.exports = function(app) {
     Transaction.create(req.body).then(function(results) {
       // results are available to us inside the .then
       res.json(results);
-      console.log("TRANSACTION HISTORY DETAILS======", results);
     });
   });
 
@@ -48,12 +47,9 @@ module.exports = function(app) {
     }).then(function(results) {
       // results are available to us inside the .then
       res.json(results);
-      console.log("TRANSACTION HISTORY DETAILS======", results);
     });
   });
- 
+
 
 
 };
-
-
