@@ -2,6 +2,8 @@
 
 A cryptocurrency trading simulator with real-time price tracking. Real-time market data provided by CryptoCompare's web socket (https://www.cryptocompare.com/api).
 
+[insert landing page screenshot]
+
 ## About
 
 CryptoFlip is a student collaboration project for a web development bootcamp. The goal of the project is to demonstrate fluency with Node/Express Web Server, the CRUD (Create, Read, Update, Delete) Method, relational database manipulation (MySQL), etc.
