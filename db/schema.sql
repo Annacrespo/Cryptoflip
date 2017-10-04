@@ -1,6 +1,10 @@
+DROP DATABASE IF EXISTS cryptoflip_db;
+
+
 CREATE DATABASE cryptoflip_db;
 USE cryptoflip_db;
 
+<<<<<<< HEAD
 CREATE TABLE currencies
 (
 	id int NOT NULL AUTO_INCREMENT,
@@ -9,3 +13,18 @@ CREATE TABLE currencies
 	coin VARCHAR(20) NOT NULL,
 	PRIMARY KEY (id)
 );
+=======
+-- CREATE TABLE transactions
+-- (
+-- 	id int NOT NULL AUTO_INCREMENT,
+-- 	currency VARCHAR(20),
+--   coinsowned INTEGER,
+-- 	buyingpower INTEGER,
+-- 	amtpurchased INTEGER,
+-- 	avgcost INTEGER,
+-- 	equityvalue INTEGER,
+-- 	PRIMARY KEY (id)
+-- );
+--  KEY (id)
+-- );
+>>>>>>> e31a05e674197d6ec089cfbddae400a30d5ce610

@@ -27,10 +27,13 @@ app.use(express.static("app/public"));
 
 // Routes
 // =============================================================
-require("./app/routes/api-routes.js")(app);
+
+require("./controllers/transactionController.js")(app);
+
+// require("./routes/api-routes.js")(app);
 
 // Here we introduce HTML routing to serve different HTML files
-require("./app/routes/html-routes.js")(app);
+// require("./app/routes/html-routes.js")(app);
 
 
 // Syncing our sequelize models and then starting our Express app
@@ -39,9 +42,4 @@ require("./app/routes/html-routes.js")(app);
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
     });
-//   });
-
-<<<<<<< HEAD
-=======
-// >>>>>>> 83524b172b9609b515e938e3b1e7c35d851ace7f
->>>>>>> c93a4e959233e8ce037182d213af37e3ced2def1
+  // });
