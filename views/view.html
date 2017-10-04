@@ -75,8 +75,8 @@
                     </thead>
                   <tbody>
                     <tr>
-                      <td class=".currentPrice">124456</td>
-                      <td class=".coinsOwned">1423</td>
+                      <td id="current-price" class=".currentPrice">124456</td>
+                      <td id="quantity-owned" class=".coinsOwned">1423</td>
                       <td class=".dayHigh">345656</td>
                       <td class=".dayLow">354563</td>
                       </tr>
@@ -86,24 +86,24 @@
               <div class="bidder col-md-12">
                 <div class="col-md-8">
                 <h3>Coin Bid</h3>
-                    <form class="form-inline" id="buy-coin">
+                    <form class="form-inline" action="" method="POST">
                       <p>
-                        <div class="form-group" action="" method="POST">
+                        <div class="form-group">
                           <label class="sr-only" for="exampleInputAmount"></label>
                             <div class="input-group">
                               <div class="input-group-addon">Ƀ</div>
-                                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Number of Coins">
+                                <input type="text" class="form-control" id="quantity-buy" placeholder="Number of Coins">
                                 <div class="input-group-addon">$</div>
                               </div>
                             </div>
-                            <button type="submit" class="btn btn-danger">Buy</button>
+                            <button type="submit" class="btn btn-danger" id="buy">Buy</button>
                           </p>
                           <p>
                             <div class="form-group">
                               <label class="sr-only" for="exampleInputAmount"></label>
                               <div class="input-group">
                                 <div class="input-group-addon">Ƀ</div>
-                                <input type="text" class="form-control" id="exampleInputAmount" placeholder="Number of Coins">
+                                <input type="text" class="form-control" id="quantity-sell" placeholder="Number of Coins">
                                 <div class="input-group-addon">$</div>
                               </div>
                             </div>
@@ -112,7 +112,8 @@
                     </form>
                   </div>
                   <div class="col-md-4" id="view-reciept">
-                    <h4>Balance: 12332155</h4>
+                    <h3>Balance: </h3>
+                    <h4 id="balance">12332155</h4>
                     <button id="view-history" class="btn btn-inline btn-primary" onclick="openHTML">View History</button>
                 </div>
               </div>
@@ -144,16 +145,12 @@
 
       coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
 
-<<<<<<< HEAD
+
       function chart() {
       var queryURL = "https://min-api.cryptocompare.com/data/histoday?fsym="+ coinArray[0] + "&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
 
       //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
-=======
-      var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym="+coinArray[0]+"&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
 
-//LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
->>>>>>> b23c1f6296c70a8f10bfecb95c756b2544a1e0a1
 
       $.ajax({
         url: queryURL,

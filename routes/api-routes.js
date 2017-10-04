@@ -9,6 +9,9 @@ var Transaction = require("../models/transactions.js");
 // Routes
 // =============================================================
 module.exports = function(app) {
+  app.get("/", function(req, res) {
+    res.sendFile("../views/view.html");
+  })
   // Get all transactions
   app.get("/api/transaction", function(req, res) {
     // Finding all transaction, and then returning them to the user as JSON.
@@ -28,6 +31,13 @@ module.exports = function(app) {
     // the .then function
     console.log(req.body);
     Transaction.create(req.body).then(function(results) {
+      // currency: "BTC",
+      // coinsowned: req.params.quantityOwned,
+      // buyingpower: req.params.buyingPower,
+      // quantityBought: req.params.quantityInput,
+      // amtpurchased:,
+      // avgcost:,
+      // equityvalue:
       // results are available to us inside the .then
       res.json(results);
     });
