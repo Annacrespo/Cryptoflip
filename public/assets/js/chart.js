@@ -1,23 +1,35 @@
 $("button").click(function(event) {
   event.preventDefault();
-  var newTransaction = {
-    quantityInput: $("#quantity-buy").val().trim(),
-    currentPrice: $("#current-price").val().trim(),
-    quantityOwned: $("#quantity-owned").val().trim(),
-    buyingPower: $("#balance").val().trim()
-  };
-  console.log(newTransaction);
+
   if(this.id == "buy") {
+    var newTransaction = {
+      quantityInput: $("#quantity-buy").val().trim(),
+      currentPrice: $("#current-price").val().trim(),
+      quantityOwned: $("#quantity-owned").val().trim(),
+      buyingPower: $("#balance").val().trim()
+    };
+
     $.post("/api/transaction", newTransaction)
     .done(function(data) {
       console.log(data);
-    })
-  } else if(this.id == "sell"){
-    $.post("/api/sold-bitcoin", newTransaction)
+      $("#quantity-buy").val("");
+
+  })
+} else if(this.id == "sell"){
+    var newTransaction = {
+      quantityInput: $("#quantity-sell").val().trim(),
+      currentPrice: $("#current-price").val().trim(),
+      quantityOwned: $("#quantity-owned").val().trim(),
+      buyingPower: $("#balance").val().trim()
+    };
+
+    $.post("/api/transaction", newTransaction)
     .done(function(data) {
       console.log(data);
+      $("quantity-sell").val("");
     })
   }
+
 });
 
 
