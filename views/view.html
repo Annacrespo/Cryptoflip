@@ -6,10 +6,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-    <script type="text/javascript" src="../data_logic/get_data.js"></script>
-    <script type="text/javascript" src="js/chart.js"></script>
+    <script type="text/javascript" src="/assets/js/chart.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../public/assets/css/cryptoflip.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/cryptoflip.css">
 
   </head>
   <body>
@@ -97,7 +96,7 @@
                                 <div class="input-group-addon">$</div>
                               </div>
                             </div>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#displaytransaction" id="buy">Buy</button>
+                            <button type="button" class="btn btn-danger" id="buy">Buy</button>
                           </p>
                           <p>
                             <div class="form-group">
@@ -115,7 +114,7 @@
                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="view-reciept">
                     <h3>Balance: </h3>
                     <h4 id="balance">12332155</h4>
-                    <button id="view-history" class="btn btn-inline btn-primary" onclick="openHTML">View History</button>
+                    <button id="view-history" class="btn btn-inline btn-primary" onclick="openHTML" data-toggle="modal" data-target="#displaytransaction">View History</button>
                 </div>
               </div>
           </div>
@@ -159,10 +158,10 @@
       <div class="row bg-img">
         <div class="footer">
           <div class="col-md-12">
-            <img class="img-fluid img-circle" src="../public/assets/images/fargin.jpg" width="60px" height="60px"/>
-            <img class="img-fluid img-circle" src="../public/assets/images/anna.jpg" width="60px" height="60px"/>
-            <img class="img-fluid img-circle" src="../public/assets/images/jon.jpg" width="60px" height="60px"/>
-            <img class="img-fluid img-circle" src="../public/assets/images/phil.jpg" width="60px" height="60px"/>
+            <img class="img-fluid img-circle" src="/assets/images/fargin.jpg" width="60px" height="60px"/>
+            <img class="img-fluid img-circle" src="/assets/images/anna.jpg" width="60px" height="60px"/>
+            <img class="img-fluid img-circle" src="/assets/images/jon.jpg" width="60px" height="60px"/>
+            <img class="img-fluid img-circle" src="/assets/images/phil.jpg" width="60px" height="60px"/>
             <div class="row">
               <div class="col-md-12">
                 <div id="copyr">&copy 2017 CryptoFlip | <a href="https://github.com/Annacrespo/Cryptoflip" style="color:#fff;">Github</a></div>

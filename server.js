@@ -32,8 +32,6 @@ app.use(express.static("./public"));
 
 require("./controllers/transactionController.js")(app);
 
-// require("./routes/api-routes.js")(app);
-
 // Here we introduce HTML routing to serve different HTML files
 require("./controllers/controllers.js")(app);
 
