@@ -25,7 +25,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory to be served
-app.use(express.static("app/public"));
+app.use(express.static("./public"));
 
 // Routes
 // =============================================================
@@ -35,7 +35,7 @@ require("./controllers/transactionController.js")(app);
 // require("./routes/api-routes.js")(app);
 
 // Here we introduce HTML routing to serve different HTML files
-// require("./app/routes/html-routes.js")(app);
+require("./controllers/controllers.js")(app);
 
 
 // Syncing our sequelize models and then starting our Express app
