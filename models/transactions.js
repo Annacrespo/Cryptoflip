@@ -3,20 +3,28 @@
 
 var Sequelize = require("sequelize");
 var sequelize = require("../config/connection.js");
-var currencies = sequelize.define("currencies", {
-  balance: {
+
+var Transactions = sequelize.define("transactions", {
+  currency: {
+    type: Sequelize.STRING
+  },
+  coinsowned: {
     type: Sequelize.INTEGER
   },
-  price: {
+  buyingpower: {
     type: Sequelize.INTEGER
   },
-  coin: {
-    type: Sequelize.INTEGER
-  }
-}, {
-  timestamps: true
+  amtpurchased: {
+  type: Sequelize.INTEGER
+  },
+  avgcost: {
+  type: Sequelize.INTEGER
+  },
+  equityvalue: {
+   type: Sequelize.INTEGER
+ }
 });
 // Syncs with DB
-currencies.sync();
+Transactions.sync();
 // Makes the Book Model available for other files (will also create a table)
-module.exports = currencies;
+module.exports = Transactions;
