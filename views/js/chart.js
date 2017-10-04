@@ -10,6 +10,7 @@ function openHTML() {
   $.ajax({
     url: queryURL,
     method: "GET"
+    
   }).done(function(response) {
     console.log(response);
     var dataPoints = [];
@@ -44,10 +45,6 @@ function openHTML() {
   });
   })
 }
-
-chart();
-
-//don't really need this but its exists, just because
-setInterval(function() {
-  chart();
-}, 60 * 1000)
+$(document).ready(function(){
+    chart();
+});
