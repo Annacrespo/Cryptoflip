@@ -42,8 +42,7 @@
   padding:5px;
 }
 #login li a:hover {
-  color:#000;
-  padding:5px;
+  color: #fff;
 }
 
 
@@ -60,9 +59,9 @@
   margin:10px;
 
 }
-.btn:hover {
-  background-color:#000;
-  color:#fff;
+.btn :hover {
+  background-color:#fff;
+  color:#000;
 }*/
 
 /* buttons end here */
@@ -98,4 +97,8 @@
 
 .bidder {
   margin-top: 5px;
+}
+
+#view-receipt {
+  padding:10px;
 }
