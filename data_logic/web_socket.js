@@ -1,5 +1,6 @@
+// acquiring cryptocurrency data objects from CryptoCompare web socket 
 var socket = io.connect('https://streamer.cryptocompare.com/');
-
+var CCC = require("utility.js");
 //Format: {SubscriptionId}~{ExchangeName}~{FromSymbol}~{ToSymbol}
 //Use SubscriptionId 0 for TRADE, 2 for CURRENT and 5 for CURRENTAGG
 //For aggregate quote updates use CCCAGG as market
