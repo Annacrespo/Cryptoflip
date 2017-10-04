@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script type="text/javascript" href="../data_logic/get_data.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../public/assets/css/cryptoflip.css">
 
@@ -74,10 +75,10 @@
                     </thead>
                   <tbody>
                     <tr>
-                      <td class="active currentPrice">124456</td>
-                      <td class="warning coinsOwned">1423</td>
-                      <td class="success highHour">345656</td>
-                      <td class="danger lowHour">354563</td>
+                      <td class=".currentPrice">124456</td>
+                      <td class=".coinsOwned">1423</td>
+                      <td class=".dayHigh">345656</td>
+                      <td class=".dayLow">354563</td>
                       </tr>
                     </tbody>
                   </table>
@@ -143,10 +144,20 @@
 
       coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
 
+<<<<<<< HEAD
       function chart() {
       var queryURL = "https://min-api.cryptocompare.com/data/histoday?fsym="+ coinArray[0] + "&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
 
       //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
+=======
+      var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym="+coinArray[0]+"&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
+<<<<<<< HEAD
+ 
+=======
+
+>>>>>>> 3fbd5a10066ba787bad529b74178f104e588b00d
+//LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
+>>>>>>> b23c1f6296c70a8f10bfecb95c756b2544a1e0a1
 
       $.ajax({
         url: queryURL,
