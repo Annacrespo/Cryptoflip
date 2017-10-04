@@ -1,30 +1,26 @@
-// Dependencies
-// =============================================================
+module.exports = function (sequelize, DataTypes) {
 
-var Sequelize = require("sequelize");
-var sequelize = require("../config/connection.js");
+  var Transaction = sequelize.define("Transaction", {
+    currency: {
+      type: DataTypes.STRING
+    },
+    coinsowned: {
+      type: DataTypes.INTEGER
+    },
+    buyingpower: {
+      type: DataTypes.INTEGER
+    },
+    amtpurchased: {
+      type: DataTypes.INTEGER
+    },
+    avgcost: {
+      type: DataTypes.INTEGER
+    },
+    equityvalue: {
+      type: DataTypes.INTEGER
+    }
+  });
 
-var Transactions = sequelize.define("transactions", {
-  currency: {
-    type: Sequelize.STRING
-  },
-  coinsowned: {
-    type: Sequelize.INTEGER
-  },
-  buyingpower: {
-    type: Sequelize.INTEGER
-  },
-  amtpurchased: {
-  type: Sequelize.INTEGER
-  },
-  avgcost: {
-  type: Sequelize.INTEGER
-  },
-  equityvalue: {
-   type: Sequelize.INTEGER
- }
-});
-// Syncs with DB
-Transactions.sync();
-// Makes the Book Model available for other files (will also create a table)
-module.exports = Transactions;
+  return Transaction;
+
+}

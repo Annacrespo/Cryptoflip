@@ -4,6 +4,16 @@ DROP DATABASE IF EXISTS cryptoflip_db;
 CREATE DATABASE cryptoflip_db;
 USE cryptoflip_db;
 
+<<<<<<< HEAD
+CREATE TABLE currencies
+(
+	id int NOT NULL AUTO_INCREMENT,
+	balance INTEGER NOT NULL,
+  price INTEGER NOT NULL,
+	coin VARCHAR(20) NOT NULL,
+	PRIMARY KEY (id)
+);
+=======
 -- CREATE TABLE transactions
 -- (
 -- 	id int NOT NULL AUTO_INCREMENT,
@@ -17,3 +27,4 @@ USE cryptoflip_db;
 -- );
 --  KEY (id)
 -- );
+>>>>>>> e31a05e674197d6ec089cfbddae400a30d5ce610
