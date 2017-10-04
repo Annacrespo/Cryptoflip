@@ -1,0 +1,23 @@
+{
+  "name": "cryptoflip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Annacrespo/Cryptoflip.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Annacrespo/Cryptoflip/issues"
+  },
+  "homepage": "https://github.com/Annacrespo/Cryptoflip#readme",
+  "dependencies": {
+    "sequelize": "^4.13.2"
+  }
+}
