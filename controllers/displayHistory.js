@@ -8,17 +8,20 @@ app.get("/api/transaction", function(req, res) {
     // results are available to us inside the .then
     res.json(results);
     console.log(results);
-    function(results) {
-       var tr = data.report;
-       for (var i = 0; i < results.length; i++) {
-        tr = $('<tr/>');
-          tr.append("<td>" + results[i].currency + "</td>");
-          tr.append("<td>" + results[i].coinsowned + "</td>");
-          tr.append("<td>" + results[i].buyingpower + "</td>");
-          tr.append("<td>" + results[i].amtpurchased + "</td>");
-          tr.append("<td>" + results[i].avgcost + "</td>");
-          tr.append("<td>" + results[i].equityvalue + "</td>");
-          tr.append("<td>" + results[i].createdat + "</td>");
-       }
+  }).then (
+  function (results) {
+    var tr = data.report;
+    tr = $('<tr>')
+    $("#transHistoryData").empty();
+    for (var i = 0; i < results.length; i++) {
+       tr.append("<td>" + results[i].currency + "</td>");
+       tr.append("<td>" + results[i].coinsowned + "</td>");
+       tr.append("<td>" + results[i].buyingpower + "</td>");
+       tr.append("<td>" + results[i].amtpurchased + "</td>");
+       tr.append("<td>" + results[i].avgcost + "</td>");
+       tr.append("<td>" + results[i].equityvalue + "</td>");
+       tr.append("<td>" + results[i].createdat + "</td>");
+       $("#transHistoryData").first().append(tr);
+    }
   });
 });
