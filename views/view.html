@@ -115,14 +115,14 @@
                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="view-reciept">
                     <h3>Balance: </h3>
                     <h4 id="balance">12332155</h4>
-                    <button id="view-history" class="btn btn-inline btn-primary" onclick="openHTML">View History</button>
+                    <button type="button" id="view-history" class="btn btn-inline btn-primary" data-toggle="modal" data-target="#displaytransaction">View History</button>
                 </div>
               </div>
           </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="displaytransaction" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="displaytransaction" tabindex="-1" role="dialog" aria-labelledby="#view-history" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
