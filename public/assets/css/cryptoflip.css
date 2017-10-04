@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans+Mono');
 
+
 .bg-img {
   background-image: url("../images/bitcoin03.jpg");
   background-position: center;
@@ -45,6 +46,13 @@
   padding:5px;
 }
 
+
+@media only screen and (max-width: 798px) {
+    .nav li {
+        text-align:center;
+        display:inline-block;
+    }
+}
 .btn {
   background-color: #fff;
   border:1px #000 solid;
