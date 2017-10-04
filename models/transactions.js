@@ -13,14 +13,14 @@ var Transactions = sequelize.define("transactions", {
   },
   buyingpower: {
     type: Sequelize.INTEGER
-},
+  },
   amtpurchased: {
   type: Sequelize.INTEGER
-},
+  },
   avgcost: {
-  type: Sequelize.INTEGER 
- },
- equityvalue: {
+  type: Sequelize.INTEGER
+  },
+  equityvalue: {
    type: Sequelize.INTEGER
  }
 });
