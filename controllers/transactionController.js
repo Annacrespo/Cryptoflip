@@ -1,6 +1,4 @@
-// *********************************************************************************
-// api-routes.js - this file offers a set of routes for displaying and saving data to the db
-// *********************************************************************************
+// =============================================================
 // Dependencies
 // =============================================================
 
@@ -33,15 +31,6 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
-app.get("/view-history", function(req, res) {
-  res.sendFile(path.join(__dirname, "../views/history.html"));
-})
-
-app.listen(port, function() {
-  console.log("Listening on port " + port);
-})
-=======
   app.delete("/api/transaction", function(req, res) {
     // Finding all transaction, and then returning them to the user as JSON.
     // Sequelize queries are aynchronous, which helps with percieved speed.
@@ -58,7 +47,4 @@ app.listen(port, function() {
     });
   });
 
-
-
 };
->>>>>>> e31a05e674197d6ec089cfbddae400a30d5ce610

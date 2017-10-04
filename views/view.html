@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script type="text/javascript" href="../data_logic/get_data.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../public/assets/css/cryptoflip.css">
 
@@ -16,8 +17,28 @@
       <div class="col-md-12 bg-img" id="header">
         <h1 id="h1">crypto-currency</h1>
         <div id="login">
-          <a href="#">Sign Up </a> |
-          <a href="#">Sign In</a>
+          <ul class="nav navbar-right">
+            <li><a href="#">Sign Up </a></li>
+            <li class="dropdown"><a href="#">Sign In <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="row">
+                    <div class="col=md-12">
+                      <form class="form" method="POST">
+                        <div class="form-group">
+                          <label>username</label>
+                          <input type="text" class="form-control" placeholder="username..." required />
+                        </div>
+                        <div class="form-group">
+                          <label>username</label>
+                          <input type="password" class="form-control" placeholder="password..." required />
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+          </ul>
         </div>
       </div>
     </div>
@@ -39,7 +60,7 @@
 
         <!--player plays game -->
       <div class="row">
-          <div class="col-sm-8 col-sm-offset-2">
+          <div class="col-md-8 col-md-offset-2">
             <!--will display when player signs in-->
               <div class="row">
                 <div class="col-sm-8">
@@ -54,20 +75,20 @@
                     </thead>
                   <tbody>
                     <tr>
-                      <td class="active currentPrice">124456</td>
-                      <td class="warning coinsOwned">1423</td>
-                      <td class="success highHour">345656</td>
-                      <td class="danger lowHour">354563</td>
+                      <td class=".currentPrice">124456</td>
+                      <td class=".coinsOwned">1423</td>
+                      <td class=".dayHigh">345656</td>
+                      <td class=".dayLow">354563</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-              <div class="bidder col-sm-12 ">
+              <div class="bidder col-md-12">
+                <div class="col-md-8">
                 <h3>Coin Bid</h3>
-                  <h4>Balance: 12332155</h4>
-                    <form class="form-inline">
+                    <form class="form-inline" id="buy-coin">
                       <p>
-                        <div class="form-group">
+                        <div class="form-group" action="" method="POST">
                           <label class="sr-only" for="exampleInputAmount"></label>
                             <div class="input-group">
                               <div class="input-group-addon">Ƀ</div>
@@ -86,14 +107,19 @@
                                 <div class="input-group-addon">$</div>
                               </div>
                             </div>
-                            <button type="submit" class="btn btn-success">Sell</button>
+                            <button type="submit" class="btn btn-success" id="sell">Sell</button>
                           </p>
                     </form>
                   </div>
+                  <div class="col-md-4" id="view-reciept">
+                    <h4>Balance: 12332155</h4>
+                    <button id="view-history" class="btn btn-inline btn-primary" onclick="openHTML">View History</button>
                 </div>
+              </div>
           </div>
       </div>
     </div>
+  </div>
       <!-- footer begins; information about the developers -->
       <div class="row bg-img">
         <div class="footer">
@@ -111,9 +137,19 @@
         </div>
       </div>
       <script type="text/javascript">
-      coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
-      function chart() {
 
+      function openHTML() {
+        window.open("history.html");
+      }
+
+      coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
+
+<<<<<<< HEAD
+      function chart() {
+      var queryURL = "https://min-api.cryptocompare.com/data/histoday?fsym="+ coinArray[0] + "&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
+
+      //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
+=======
       var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym="+coinArray[0]+"&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
 <<<<<<< HEAD
  
@@ -121,6 +157,7 @@
 
 >>>>>>> 3fbd5a10066ba787bad529b74178f104e588b00d
 //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
+>>>>>>> b23c1f6296c70a8f10bfecb95c756b2544a1e0a1
 
       $.ajax({
         url: queryURL,
@@ -132,7 +169,7 @@
         var data = response.Data;
 
         for (var i = 0; i < data.length; i++) {
-          var x = moment.unix(data[i].time).format("h:mm:ss");
+          var x = moment.unix(data[i].time).format("MM/DD/YY");
           var y = data[i].close;
           labels.push(x);
           dataPoints.push(y);
