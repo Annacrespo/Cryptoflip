@@ -22,5 +22,5 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   return Transaction;
-
+console.log(transaction);
 }
