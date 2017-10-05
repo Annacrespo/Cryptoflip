@@ -1,50 +1,26 @@
-var express = require("express");
+// *********************************************************************************
+// html-routes.js - this file offers a set of routes for sending users to the various html pages
+// *********************************************************************************
 
-var router = express.Router();
+// Dependencies
+// =============================================================
+var path = require("path");
 
-// Import the model (cat.js) to use its database functions.
-var crypto = require("../models/cryptoflip.js");
+// Routes
+// =============================================================
+module.exports = function(app) {
 
-// Create all our routes and set up logic within those routes where required.
-router.get("/", function(req, res) {
-  crypto.all(function(data) {
-    var hbsObject = {
-      price: data
-    };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
+  // Each of the below routes just handles the HTML page that the user gets sent to.
+
+  // index route loads view.html
+  app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/view.html"));
   });
-});
 
-router.post("/", function(req, res) {
-  crypto.create([
-    "price", "coins owned"
-  ], [
-    req.body, req.body
-  ], function() {
-    res.redirect("/");
+  // cms route loads cms.html
+  app.get("/home", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/view.html"));
   });
-});
 
-router.put("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
 
-  console.log("condition", condition);
-
-  crypto.update({
-    crypto: req.body.coinsOwned
-  }, condition, function() {
-    res.redirect("/");
-  });
-});
-
-router.delete("/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-
-  crypto.delete(condition, function() {
-    res.redirect("/");
-  });
-});
-
-// Export routes for server.js to use.
-module.exports = router;
+};

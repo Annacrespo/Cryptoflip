@@ -10,7 +10,7 @@ function openHTML() {
   $.ajax({
     url: queryURL,
     method: "GET"
-    
+
   }).done(function(response) {
     console.log(response);
     var dataPoints = [];
