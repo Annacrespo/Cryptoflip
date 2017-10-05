@@ -7,7 +7,7 @@ var db = require("./../models");
 // =============================================================
 module.exports = function(app) {
   // Get all transactions
-  app.get("/api/history", function(req, res) {
+  app.get("/api/transaction", function(req, res) {
     // Finding all transaction, and then returning them to the user as JSON.
     // Sequelize queries are aynchronous, which helps with percieved speed.
     // If we want something to be guaranteed to happen after the query, we'll use
