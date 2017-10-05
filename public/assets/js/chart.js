@@ -1,43 +1,24 @@
-$("button").click(function(event) {
-  event.preventDefault();
+var coinList = ["BTC", "LTC", "ETH", "ZEC", "NEO"];
 
-  if(this.id == "buy") {
-    var newTransaction = {
-      quantityInput: $("#quantity-buy").val().trim(),
-      currentPrice: $("#current-price").val().trim(),
-      quantityOwned: $("#quantity-owned").val().trim(),
-      buyingPower: $("#balance").val().trim()
-    };
+var whichCoin; 
 
-    $.post("/api/transaction", newTransaction)
-    .done(function(data) {
-      console.log(data);
-      $("#quantity-buy").val("");
+var getData;
+var data; //for returned object
 
-  })
-} else if(this.id == "sell"){
-    var newTransaction = {
-      quantityInput: $("#quantity-sell").val().trim(),
-      currentPrice: $("#current-price").val().trim(),
-      quantityOwned: $("#quantity-owned").val().trim(),
-      buyingPower: $("#balance").val().trim()
-    };
+// chartjs array to contain data points
+var x;
+var y;
+var labels = [];
+var dataPoints = [];
 
-    $.post("/api/transaction", newTransaction)
-    .done(function(data) {
-      console.log(data);
-      $("quantity-sell").val("");
-    })
-  }
-
-});
 // ajax call to cryptocompare api for coin data
-var coinLoad = function () {
+var coinLoad = function() {
   var apiURL;
-  var coinList = ["BTC", "LTC", "ETH", "ZEC", "NEO"];
 
   function makeURL(coin) {
     var coinIndex = coinList.indexOf(coin);
+    // passing coin parameter to whichCoin global var
+    whichCoin = coin;
     apiURL = "https://min-api.cryptocompare.com/data/histoday?";
     apiURL += $.param({
       fsym: coinList[coinIndex],
@@ -46,112 +27,104 @@ var coinLoad = function () {
       aggregate: "3",
       e: "CCCAGG"
     });
+    getData = apiURL;
   }
   makeURL("BTC");
 
   return $.ajax({
-    url: apiURL,
+    url: getData,
     method: "GET"
   }).done(function (response) {
     console.log(response);
-    var dataPoints = [];
-    var labels = [];
-    var data = response.raw;
-
-    for (var i = 0; i < i < data.length; i++) {
-      var x = moment.unix(data[i].time).format("MM/DD/YY");
-      var y = data[i].close;
-      labels.push(x);
-      dataPoints.push(y);
-    }
-  
-    new Chart(document.getElementById("line-chart"), {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-          data: dataPoints,
-          label: "BITCOIN",
-          borderColor: "#3e95cd",
-          fill: false
-        }]
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'Bitcoin Market'
-        }
-      }
-    });
+    data = response.Data;
+    whichCoin = "LTC";
+    coinPicker();
   });
 };
-  
-  chart();
-  
-  //don't really need this but its exists, just because
-//   setInterval(function() {
-//       chart();
-//     }, 60 * 1000);
+coinLoad();
 
-//         }]
-//       } 
-//   })
-//   })
-// }
-  
-// coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
+var coinPicker = function () {
+  var label;
+  var text;
 
-// function chart() {
-// var queryURL = "https://min-api.cryptocompare.com/data/histoday?fsym="+ coinArray[0] + "&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
+  for (var i = 0; i < data.length; i++) {
+    x = moment.unix(data[i].time).format("MM/DD/YY");
+    y = data[i].close;
+    labels.push(x);
+    dataPoints.push(y);
+  }
 
-// //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
-// // =======
-// // var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym="+coinArray[0]+"&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
+  if (whichCoin === "BTC") {
+    label = "BITCOIN";
+    text = "Bitcoin Market";
+  } else if (whichCoin === "LTC") {
+    label = "LITECOIN";
+    text = "Litecoin Market";
+  }
 
-// // =======
+  new Chart(document.getElementById("line-chart"), {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: dataPoints,
+        label: label,
+        borderColor: "#3e95cd",
+        fill: false
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: text
+      }
+    }
+  });
+};
 
+$("button").click(function (event) {
+  var newTransaction;
+  event.preventDefault();
 
-// $.ajax({
-//   url: queryURL,
-//   method: "GET"
-// }).done(function(response) {
-//   console.log(response);
-//   var dataPoints = [];
-//   var labels = [];
-//   var data = response.Data;
+  if (this.id == "buy") {
+    newTransaction = {
+      quantityInput: $("#quantity-buy")
+        .val()
+        .trim(),
+      currentPrice: $("#current-price")
+        .val()
+        .trim(),
+      quantityOwned: $("#quantity-owned")
+        .val()
+        .trim(),
+      buyingPower: $("#balance")
+        .val()
+        .trim()
+    };
 
-//   for (var i = 0; i < data.length; i++) {
-//     var x = moment.unix(data[i].time).format("MM/DD/YY");
-//     var y = data[i].close;
-//     labels.push(x);
-//     dataPoints.push(y);
-//   }
+    $.post("/api/transaction", newTransaction).done(function(data) {
+      console.log(data);
+      $("#quantity-buy").val("");
+    });
+  } else if (this.id == "sell") {
+    newTransaction = {
+      quantityInput: $("#quantity-sell")
+        .val()
+        .trim(),
+      currentPrice: $("#current-price")
+        .val()
+        .trim(),
+      quantityOwned: $("#quantity-owned")
+        .val()
+        .trim(),
+      buyingPower: $("#balance")
+        .val()
+        .trim()
+    };
 
-// new Chart(document.getElementById("line-chart"), {
-//   type: 'line',
-//     data: {
-//       labels: labels,
-//       datasets: [{
-//         data: dataPoints,
-//         label: "BITCOIN",
-//         borderColor: "#3e95cd",
-//         fill: false
-//       }
-//     ]
-//   },
-//   options: {
-//     title: {
-//       display: true,
-//       text: 'Bitcoin Market'
-//     }
-//   }
-// });
-// })
-// }
-
-// chart();
-
-// //don't really need this but its exists, just because
-// setInterval(function() {
-//     chart();
-//   }, 60 * 1000);
+    $.post("/api/transaction", newTransaction).done(function(data) {
+      console.log(data);
+      $("quantity-sell").val("");
+    });
+  }
+});
