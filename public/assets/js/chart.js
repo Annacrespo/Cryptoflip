@@ -87,10 +87,5 @@ new Chart(document.getElementById("line-chart"), {
 });
 })
 }
-
+$(document).on("ready");
 chart();
-
-//don't really need this but its exists, just because
-setInterval(function() {
-    chart();
-  }, 60 * 1000);

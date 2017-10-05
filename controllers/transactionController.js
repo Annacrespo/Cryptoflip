@@ -24,7 +24,7 @@ module.exports = function(app) {
     // If we want something to be guaranteed to happen after the query, we'll use
     // the .then function
     console.log(req.body);
-    Transaction.create({
+    db.Transaction.create({
       currency: "BTC",
       coinsowned: req.body.quantityOwned,
       buyingpower: req.body.buyingPower,
