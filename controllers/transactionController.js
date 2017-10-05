@@ -16,7 +16,7 @@ module.exports = function(app) {
     db.Transaction.findAll().then(function(data){
       res.json(data);
     })
-  });
+});
 
   app.post("/api/transaction", function(req, res) {
     // Finding all transaction, and then returning them to the user as JSON.
