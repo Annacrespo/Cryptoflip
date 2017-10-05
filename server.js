@@ -1,5 +1,5 @@
 global.fetch = require('node-fetch');
-const cc = require('cryptocompare');
+var cc = require('cryptocompare');
 
 // *********************************************************************************
 // Server.js - This file is the initial starting point for the Node/Express server.
