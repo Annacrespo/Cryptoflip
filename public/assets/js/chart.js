@@ -75,83 +75,83 @@ var coinLoad = function () {
           borderColor: "#3e95cd",
           fill: false
         }]
-    },
-    options: {
-      title: {
-        display: true,
-        text: 'Bitcoin Market'
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Bitcoin Market'
+        }
       }
-    }
+    });
   });
-  })
-  }
+};
   
   chart();
   
   //don't really need this but its exists, just because
-  setInterval(function() {
-      chart();
-    }, 60 * 1000);
+//   setInterval(function() {
+//       chart();
+//     }, 60 * 1000);
 
-        }]
-      } 
-  })
-  })
-}
+//         }]
+//       } 
+//   })
+//   })
+// }
   
-coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
+// coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
 
-function chart() {
-var queryURL = "https://min-api.cryptocompare.com/data/histoday?fsym="+ coinArray[0] + "&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
+// function chart() {
+// var queryURL = "https://min-api.cryptocompare.com/data/histoday?fsym="+ coinArray[0] + "&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
 
-//LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
-// =======
-// var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym="+coinArray[0]+"&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
+// //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
+// // =======
+// // var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym="+coinArray[0]+"&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
 
-// =======
+// // =======
 
 
-$.ajax({
-  url: queryURL,
-  method: "GET"
-}).done(function(response) {
-  console.log(response);
-  var dataPoints = [];
-  var labels = [];
-  var data = response.Data;
+// $.ajax({
+//   url: queryURL,
+//   method: "GET"
+// }).done(function(response) {
+//   console.log(response);
+//   var dataPoints = [];
+//   var labels = [];
+//   var data = response.Data;
 
-  for (var i = 0; i < data.length; i++) {
-    var x = moment.unix(data[i].time).format("MM/DD/YY");
-    var y = data[i].close;
-    labels.push(x);
-    dataPoints.push(y);
-  }
+//   for (var i = 0; i < data.length; i++) {
+//     var x = moment.unix(data[i].time).format("MM/DD/YY");
+//     var y = data[i].close;
+//     labels.push(x);
+//     dataPoints.push(y);
+//   }
 
-new Chart(document.getElementById("line-chart"), {
-  type: 'line',
-    data: {
-      labels: labels,
-      datasets: [{
-        data: dataPoints,
-        label: "BITCOIN",
-        borderColor: "#3e95cd",
-        fill: false
-      }
-    ]
-  },
-  options: {
-    title: {
-      display: true,
-      text: 'Bitcoin Market'
-    }
-  }
-});
-})
-}
+// new Chart(document.getElementById("line-chart"), {
+//   type: 'line',
+//     data: {
+//       labels: labels,
+//       datasets: [{
+//         data: dataPoints,
+//         label: "BITCOIN",
+//         borderColor: "#3e95cd",
+//         fill: false
+//       }
+//     ]
+//   },
+//   options: {
+//     title: {
+//       display: true,
+//       text: 'Bitcoin Market'
+//     }
+//   }
+// });
+// })
+// }
 
-chart();
+// chart();
 
-//don't really need this but its exists, just because
-setInterval(function() {
-    chart();
-  }, 60 * 1000);
+// //don't really need this but its exists, just because
+// setInterval(function() {
+//     chart();
+//   }, 60 * 1000);
