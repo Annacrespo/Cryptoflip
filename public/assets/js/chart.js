@@ -8,7 +8,15 @@ $("button").click(function(event) {
       quantityOwned: $("#quantity-owned").val().trim(),
       buyingPower: $("#balance").val().trim()
     };
-
+    con.connect(function(err) {
+      if (err) throw err;
+      var sql = "INSERT INTO Transactions () VALUES ()";
+      con.query(sql, function (err, result) {
+        if (err) throw err;
+        console.log("transaction insterted!");
+      });
+    });
+    console.log(newTransaction);
     $.post("/api/transaction", newTransaction)
     .done(function(data) {
       console.log(data);
@@ -33,22 +41,11 @@ $("button").click(function(event) {
 });
 
 
+
 coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
 
-// <<<<<<< HEAD
 function chart() {
 var queryURL = "https://min-api.cryptocompare.com/data/histoday?fsym="+ coinArray[0] + "&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
-
-//LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
-// =======
-// var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym="+coinArray[0]+"&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
-// <<<<<<< HEAD
-
-// =======
-
-// >>>>>>> 3fbd5a10066ba787bad529b74178f104e588b00d
-//LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
-// >>>>>>> b23c1f6296c70a8f10bfecb95c756b2544a1e0a1
 
 $.ajax({
   url: queryURL,
