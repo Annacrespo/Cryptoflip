@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "hae3e9f0",
+=======
+    "password": "",
+>>>>>>> 7d15e4fd3ed7a4746f53e0d3bf6c59310115f99a
     "database": "cryptoflip_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
