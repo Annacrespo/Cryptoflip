@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans+Mono');
 
-
+html, body {
+  margin:0;
+  height:100%;
+}
 .bg-img {
   background-image: url("../images/bitcoin03.jpg");
   background-position: center;
@@ -99,6 +102,15 @@
   margin-top: 5px;
 }
 
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+}
+#table {
+  table-layout: fixed;
+  word-wrap:break-word;
+}
 #view-receipt {
   padding:10px;
 }
