@@ -1,19 +1,18 @@
 // =============================================================
 // Dependencies
 // =============================================================
-
 var db = require("./../models");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
   // Get all transactions
-  app.get("/api/transaction", function(req, res) {
+  app.get("/api/history", function(req, res) {
     // Finding all transaction, and then returning them to the user as JSON.
     // Sequelize queries are aynchronous, which helps with percieved speed.
     // If we want something to be guaranteed to happen after the query, we'll use
     // the .then function
-    db.Transaction.findAll().then(function(data){
+    db.Transaction.findAll({}).then(function(data){
       res.json(data);
     })
   });
@@ -23,17 +22,22 @@ module.exports = function(app) {
     // Sequelize queries are aynchronous, which helps with percieved speed.
     // If we want something to be guaranteed to happen after the query, we'll use
     // the .then function
-    console.log(req.body);
+    var bP = req.body.buyingPower;
+    var quantity = req.body.quantityInput;
+    var cP = req.body.currentPrice;
+    var coinsOwned = req.body.coinsOwned;
+    var totalCost = req.body.totalCost;
+
     db.Transaction.create({
       currency: "BTC",
-      coinsowned: req.body.quantityOwned,
-      buyingpower: req.body.buyingPower,
-      quantityBought: req.body.quantityInput,
-      amtpurchased:"",
-      avgcost:"",
-      equityvalue:""}).then(function(results) {
+      coinsowned: coinsOwned,
+      buyingpower: bP,
+      totalpurchase: totalCost,
+      amtpurchased:quantity,
+      avgcost:0,
+      equityvalue:0}).then(function(results) {
       // results are available to us inside the .then
-      res.json(results);
+      return res.json(results);
   });
 });
 

@@ -13,6 +13,9 @@ module.exports = function (sequelize, DataTypes) {
     amtpurchased: {
       type: DataTypes.INTEGER
     },
+    totalpurchase: {
+      type:DataTypes.INTEGER
+    },
     avgcost: {
       type: DataTypes.INTEGER
     },
