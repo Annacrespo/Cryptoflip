@@ -1,4 +1,5 @@
 $(document).ready(function(){
+<<<<<<< HEAD
   
   
   
@@ -46,6 +47,33 @@ $(document).ready(function(){
       }
   
       $.post("/api/transaction", newSale)
+=======
+
+  var buyingPower = parseInt($("#balance").text());
+  var coinsOwned = parseInt($("#quantity-owned").text());
+  var currentPrice = parseInt($("#current-price").text());
+
+  $("#buy").click(function(event) {
+    event.preventDefault();
+
+    var quantity = $("#quantity-buy").val();
+    var totalCost = quantity * currentPrice;
+    var newBalance = buyingPower - totalCost;
+
+    console.log(totalCost);
+
+    var newTransaction = {
+      quantityInput: quantity,
+      buyingPower: newBalance,
+      totalCost: totalCost,
+      coinsOwned: coinsOwned,
+      currentPrice: currentPrice
+    };
+
+      console.log(newTransaction);
+
+      $.post("/api/transaction", newTransaction)
+>>>>>>> b3d0641a6ccd461bf77b68ccf29ff588cb041417
       .done(function(data) {
         console.log(data);
       });
