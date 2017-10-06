@@ -11,6 +11,7 @@ $(document).ready(function(){
     var newCoins = parseInt($("#quantity-owned").text()) + parseInt($("#quantity-buy").val());
     var totalCost = quantity * currentPrice;
     var newBalance = buyingPower - totalCost;
+
     console.log(totalCost);
 
     var newTransaction = {
