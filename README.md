@@ -12,11 +12,7 @@ The intent of this site concept is to offer a user with little prior relevant kn
 
 ## CryptoFlip Site
 
-<<<<<<< HEAD
 https://mysterious-shelf-69890.herokuapp.com/
-=======
-https://mysterious-shelf-69890.herokuapp.com
->>>>>>> 7bf6cf00f7222b508f5023b030816eef20acc9a6
 
 ## Authors
 
