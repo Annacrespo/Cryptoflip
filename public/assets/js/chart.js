@@ -10,6 +10,7 @@ $(document).ready(function(){
     var quantity = $("#quantity-buy").val();
     var totalCost = quantity * currentPrice;
     var newBalance = buyingPower - totalCost;
+
     console.log(totalCost);
 
     var newTransaction = {
