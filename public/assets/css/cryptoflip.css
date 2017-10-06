@@ -13,7 +13,7 @@ html, body {
 
 #header {
   background-color: #000;
-  padding:left;
+  padding:10px;
   border-bottom:0.7px #444 solid;
 }
 
@@ -54,6 +54,10 @@ html, body {
         text-align:center;
         display:inline-block;
     }
+}
+
+#list {
+  padding-top:50px;
 }
 .btn {
   background-color: #fff;
