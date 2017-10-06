@@ -107,7 +107,11 @@ $(document).ready(function(){
   });
   })
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
+=======
+});
+>>>>>>> b3d0641a6ccd461bf77b68ccf29ff588cb041417
 =======
 });
 >>>>>>> b3d0641a6ccd461bf77b68ccf29ff588cb041417
