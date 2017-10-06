@@ -17,6 +17,24 @@ module.exports = function(app) {
     })
 });
 
+app.get("/api/new", function(req, res) {
+  // Finding all transaction, and then returning them to the user as JSON.
+  // Sequelize queries are aynchronous, which helps with percieved speed.
+  // If we want something to be guaranteed to happen after the query, we'll use
+  // the .then function
+    db.Transaction.findAll({
+    limit: 1,
+    where: {
+      //your where conditions, or without them if you need ANY entry
+    },
+      order: [ [ 'createdAt', 'DESC' ]]
+    }).then(function(data){
+      //only difference is that you get users list limited to 1
+      //entries[0]
+      res.json(data);
+    })
+  });
+
   app.post("/api/transaction", function(req, res) {
     // Finding all transaction, and then returning them to the user as JSON.
     // Sequelize queries are aynchronous, which helps with percieved speed.

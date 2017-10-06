@@ -1,13 +1,14 @@
 $(document).ready(function(){
 
-  var buyingPower = parseInt($("#balance").text());
-  var coinsOwned = parseInt($("#quantity-owned").text());
-  var currentPrice = parseInt($("#current-price").text());
-
+//BUY COIN BUTTON FUNCTION
   $("#buy").click(function(event) {
     event.preventDefault();
+    var buyingPower = parseInt($("#balance").text());
+    var coinsOwned = parseInt($("#quantity-owned").text());
+    var currentPrice = parseInt($("#current-price").text());
 
-    var quantity = $("#quantity-buy").val();
+    var quantity = parseInt($("#quantity-buy").val());
+    var newCoins = parseInt($("#quantity-owned").text()) + parseInt($("#quantity-buy").val());
     var totalCost = quantity * currentPrice;
     var newBalance = buyingPower - totalCost;
     console.log(totalCost);
@@ -16,7 +17,7 @@ $(document).ready(function(){
       quantityInput: quantity,
       buyingPower: newBalance,
       totalCost: totalCost,
-      coinsOwned: coinsOwned,
+      coinsOwned: newCoins,
       currentPrice: currentPrice
     };
 
@@ -28,10 +29,18 @@ $(document).ready(function(){
       });
 
       $("#quantity-buy").val("");
+      balanceInfo();
   });
 
+
+// SELL COIN BUTTON FUNCTION
   $("#sell").click(function(event) {
+    var buyingPower = parseInt($("#balance").text());
+    var coinsOwned = parseInt($("#quantity-owned").text());
+    var currentPrice = parseInt($("#current-price").text());
+
     var quantityToSell = parseInt($("#quantity-sell").val());
+    var newCoins = parseInt($("#quantity-owned").text()) - parseInt($("#quantity-sell").val());
     var totalSales = quantityToSell * currentPrice;
     var newBalance = buyingPower + totalSales;
 
@@ -39,7 +48,7 @@ $(document).ready(function(){
       quantityInput: quantityToSell,
       buyingPower: newBalance,
       totalCost: totalSales,
-      coinsOwned: coinsOwned,
+      coinsOwned: newCoins,
       currentPrice: currentPrice
     }
 
@@ -49,25 +58,15 @@ $(document).ready(function(){
     });
 
     $("#quantity-sell").val("");
-
+    balanceInfo();
   })
 
 
   coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
 
-  // <<<<<<< HEAD
+
   var queryURL = "https://min-api.cryptocompare.com/data/histoday?fsym="+ coinArray[0] + "&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
 
-  //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
-  // =======
-  // var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym="+coinArray[0]+"&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
-  // <<<<<<< HEAD
-
-  // =======
-
-  // >>>>>>> 3fbd5a10066ba787bad529b74178f104e588b00d
-  //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
-  // >>>>>>> b23c1f6296c70a8f10bfecb95c756b2544a1e0a1
 
   $.ajax({
     url: queryURL,

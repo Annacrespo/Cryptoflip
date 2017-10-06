@@ -20,6 +20,20 @@ function displayHistory(){
     });
 }
 
+function balanceInfo(){
+    $.ajax({
+        type: "GET",
+        url: "api/new",
+        success: function(data,textStatus,jqXHR) {
+          var balanceUpdate = data[0].buyingpower;
+          var coinUpdate = data[0].coinsowned;
+           $("#balance").text(balanceUpdate);
+           $("#quantity-owned").text(coinUpdate);
+        }
+    });
+}
+
 $(document).ready(function(){
+    balanceInfo();
     displayHistory();
 });
