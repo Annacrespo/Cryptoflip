@@ -4,7 +4,7 @@ if (process.env.JAWSDB_URL) {
     connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: 'shperuby098',
+        password: '',
         database: 'cryptoflip_db'
 });
 };
