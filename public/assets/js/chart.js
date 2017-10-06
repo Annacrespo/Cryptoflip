@@ -38,7 +38,7 @@ $(document).ready(function(){
     var newSale = {
       quantityInput: quantityToSell,
       buyingPower: newBalance,
-      totalSales: totalSales,
+      totalCost: totalSales,
       coinsOwned: coinsOwned,
       currentPrice: currentPrice
     }
