@@ -11,37 +11,6 @@ var y;
 var labels = [];
 var dataPoints = [];
 
-// ajax call to cryptocompare api for coin data
-var coinLoad = function() {
-  var apiURL;
-
-  function makeURL(coin) {
-    var coinIndex = coinList.indexOf(coin);
-    // passing coin parameter to whichCoin global var
-    whichCoin = coin;
-    apiURL = "https://min-api.cryptocompare.com/data/histoday?";
-    apiURL += $.param({
-      fsym: coinList[coinIndex],
-      tsym: "USD",
-      limit: "100",
-      aggregate: "3",
-      e: "CCCAGG"
-    });
-    getData = apiURL;
-  }
-  makeURL("BTC");
-
-  return $.ajax({
-    url: getData,
-    method: "GET"
-  }).done(function (response) {
-    console.log(response);
-    data = response.Data;
-    whichCoin = "LTC";
-    coinPicker(whichCoin);
-  });
-};
-coinLoad();
 
 var coinPicker = function (whichCoin) {
   var label;
@@ -90,6 +59,39 @@ var coinPicker = function (whichCoin) {
     }
   });
 };
+// ajax call to cryptocompare api for coin data
+var coinLoad = function() {
+  var apiURL;
+
+  function makeURL(coin) {
+    var coinIndex = coinList.indexOf(coin);
+    // passing coin parameter to whichCoin global var
+    whichCoin = coin;
+    apiURL = "https://min-api.cryptocompare.com/data/histoday?";
+    apiURL += $.param({
+      fsym: coinList[coinIndex],
+      tsym: "USD",
+      limit: "100",
+      aggregate: "3",
+      e: "CCCAGG"
+    });
+    getData = apiURL;
+  }
+  makeURL("BTC");
+
+  return $.ajax({
+    url: getData,
+    method: "GET"
+  }).done(function (response) {
+    console.log(response);
+    data = response.Data;
+    whichCoin = "LTC";
+    coinPicker(whichCoin);
+  });
+};
+coinLoad();
+
+
 
 $("button").click(function (event) {
   var newTransaction;
