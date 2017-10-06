@@ -1,80 +1,93 @@
-$("button").click(function (event) {
-  event.preventDefault();
+$(document).ready(function(){
 
-  if (this.id == "buy") {
+  var buyingPower = parseInt($("#balance").text());
+  var coinsOwned = parseInt($("#quantity-owned").text());
+  var currentPrice = parseInt($("#current-price").text());
+
+  $("#buy").click(function(event) {
+    event.preventDefault();
+
+    var quantity = $("#quantity-buy").val();
+    var totalCost = quantity * currentPrice;
+    var newBalance = buyingPower - totalCost;
+
+    console.log(totalCost);
+
     var newTransaction = {
-      quantityInput: $("#quantity-buy").val().trim(),
-      currentPrice: $("#current-price").val().trim(),
-      quantityOwned: $("#quantity-owned").val().trim(),
-      buyingPower: $("#balance").val().trim()
+      quantityInput: quantity,
+      buyingPower: newBalance,
+      totalCost: totalCost,
+      coinsOwned: coinsOwned,
+      currentPrice: currentPrice
     };
-    con.connect(function (err) {
-      if (err) throw err;
-      var sql = "INSERT INTO Transactions () VALUES ()";
-      con.query(sql, function (err, result) {
-        if (err) throw err;
-        console.log("transaction insterted!");
+
+      console.log(newTransaction);
+
+      $.post("/api/transaction", newTransaction)
+      .done(function(data) {
+        console.log(data);
       });
+
+      $("#quantity-buy").val("");
+  });
+
+  $("#sell").click(function(event) {
+    var quantityToSell = parseInt($("#quantity-sell").val());
+    var totalSales = quantityToSell * currentPrice;
+    var newBalance = buyingPower + totalSales;
+
+    var newSale = {
+      quantityInput: quantityToSell,
+      buyingPower: newBalance,
+      totalCost: totalSales,
+      coinsOwned: coinsOwned,
+      currentPrice: currentPrice
+    }
+
+    $.post("/api/transaction", newSale)
+    .done(function(data) {
+      console.log(data);
     });
-    console.log(newTransaction);
-    $.post("/api/transaction", newTransaction)
-      .done(function (data) {
-        console.log(data);
-        $("#quantity-buy").val("");
 
-      })
-  } else if (this.id == "sell") {
-    var newTransaction = {
-      quantityInput: $("#quantity-sell").val().trim(),
-      currentPrice: $("#current-price").val().trim(),
-      quantityOwned: $("#quantity-owned").val().trim(),
-      buyingPower: $("#balance").val().trim()
-    };
+    $("#quantity-sell").val("");
 
-    $.post("/api/transaction", newTransaction)
-      .done(function (data) {
-        console.log(data);
-        $("quantity-sell").val("");
-      })
-  }
+  })
 
-});
-// ajax call to cryptocompare api for coin data
-var coinLoad = function () {
-  var apiURL;
-  var coinList = ["BTC", "LTC", "ETH", "ZEC", "NEO"];
 
-  function makeURL(coin) {
-    var coinIndex = coinList.indexOf(coin);
-    apiURL = "https://min-api.cryptocompare.com/data/histoday?";
-    apiURL += $.param({
-      fsym: coinList[coinIndex],
-      tsym: "USD",
-      limit: "100",
-      aggregate: "3",
-      e: "CCCAGG"
-    });
-  }
-  makeURL("BTC");
+  coinArray = ["BTC", "NEO", "ETH", "ZEC", "LTC"];
 
-  return $.ajax({
-    url: apiURL,
+  // <<<<<<< HEAD
+  var queryURL = "https://min-api.cryptocompare.com/data/histoday?fsym="+ coinArray[0] + "&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
+
+  //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
+  // =======
+  // var queryURL = "https://min-api.cryptocompare.com/data/histominute?fsym="+coinArray[0]+"&tsym=USD&limit=60&aggregate=3&e=CCCAGG";
+  // <<<<<<< HEAD
+
+  // =======
+
+  // >>>>>>> 3fbd5a10066ba787bad529b74178f104e588b00d
+  //LEAVE STRING ARRAY SET VALUE OF VARIABLE WITHIN QUERY JQUERY SELECT .ONCLICK FUNCTION WILL BE QUERY = ARRAY
+  // >>>>>>> b23c1f6296c70a8f10bfecb95c756b2544a1e0a1
+
+  $.ajax({
+    url: queryURL,
     method: "GET"
-  }).done(function (response) {
+  }).done(function(response) {
     console.log(response);
     var dataPoints = [];
     var labels = [];
-    var data = response.raw;
+    var data = response.Data;
 
-    for (var i = 0; i < i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
       var x = moment.unix(data[i].time).format("MM/DD/YY");
       var y = data[i].close;
       labels.push(x);
       dataPoints.push(y);
     }
 
-    new Chart(document.getElementById("line-chart"), {
-      type: 'line',
+  new Chart(document.getElementById("line-chart"), {
+    type: 'line',
       data: {
         labels: labels,
         datasets: [{
@@ -82,14 +95,19 @@ var coinLoad = function () {
           label: "BITCOIN",
           borderColor: "#3e95cd",
           fill: false
-        }]
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'Bitcoin Market'
         }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Bitcoin Market'
       }
-    });
+    }
+  });
   })
+<<<<<<< HEAD
 }
+=======
+});
+>>>>>>> b3d0641a6ccd461bf77b68ccf29ff588cb041417

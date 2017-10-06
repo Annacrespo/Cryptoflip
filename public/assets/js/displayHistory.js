@@ -13,7 +13,7 @@ function displayHistory(){
                 tr.append("<td>" + data[i].amtpurchased + "</td>");
                 tr.append("<td>" + data[i].avgcost + "</td>");
                 tr.append("<td>" + data[i].equityvalue + "</td>");
-                tr.append("<td>" + data[i].createdat + "</td>");
+                tr.append("<td>" + data[i].createdAt + "</td>");
                 $("#transaction-display").first().append(tr);
              }
         }
