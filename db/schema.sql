@@ -15,7 +15,6 @@ CREATE TABLE currencies
 	PRIMARY KEY (id)
 
 );
-=======
 -- CREATE TABLE transactions
 -- (
 -- 	id int NOT NULL AUTO_INCREMENT,
@@ -29,3 +28,5 @@ CREATE TABLE currencies
 -- );
 --  KEY (id)
 -- );
+
+select * from transaction;
