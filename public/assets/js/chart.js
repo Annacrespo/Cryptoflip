@@ -38,12 +38,12 @@ var coinLoad = function() {
     console.log(response);
     data = response.Data;
     whichCoin = "LTC";
-    coinPicker();
+    coinPicker(whichCoin);
   });
 };
 coinLoad();
 
-var coinPicker = function () {
+var coinPicker = function (whichCoin) {
   var label;
   var text;
 
@@ -56,10 +56,19 @@ var coinPicker = function () {
 
   if (whichCoin === "BTC") {
     label = "BITCOIN";
-    text = "Bitcoin Market";
+    text = "Bitcoin Historical Market Data";
   } else if (whichCoin === "LTC") {
     label = "LITECOIN";
-    text = "Litecoin Market";
+    text = "Litecoin Historical Market Data";
+  } else if (whichCoin === "ETH") {
+    label = 'ETHERIUM';
+    text = "Etherium Historical Market Data";
+  } else if (whichCoin === "ZEC") {
+    label = "ZCASH";
+    text = "Zcash Historical Market Data";
+  } else if (whichCoin === "NEO") {
+    label = "NEO";
+    text = "NEO Historical Market Data";
   }
 
   new Chart(document.getElementById("line-chart"), {
