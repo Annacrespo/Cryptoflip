@@ -12,7 +12,7 @@ The intent of this site concept is to offer a user with little prior relevant kn
 
 ## CryptoFlip Site
 
-[insert heroku url with finished product]
+https://mysterious-shelf-69890.herokuapp.com/
 
 ## Authors
 
