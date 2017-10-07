@@ -11,6 +11,12 @@ html, body {
   background-size: cover;
 }
 
+.logo {
+  max-width: 100%;
+  height: auto;
+  margin-left: 20%;
+}
+
 #header {
   background-color: #000;
   padding:10px;
@@ -18,11 +24,8 @@ html, body {
 }
 
 #h1 {
-  float:left;
   color:#fff;
   display:inline-block;
-  margin-left:15%;
-  padding-bottom:15px;
   font-family: 'Droid Sans Mono';
 }
 
