@@ -3,7 +3,7 @@
     <title>Cryptocurrency Trading Simulation</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="/assets/css/cryptoflip.css">
@@ -72,8 +72,8 @@
               </thead>
               <tbody>
                 <tr>
-                  <td id="current-price" class=".currentPrice">4366</td>
-                  <td id="quantity-owned" class=".coinsOwned"></td>
+                  <td id="current-price" class=".currentPrice">124456</td>
+                  <td id="quantity-owned" class=".coinsOwned">1423</td>
                   <td class=".dayHigh">345656</td>
                   <td class=".dayLow">354563</td>
                 </tr>
@@ -110,7 +110,7 @@
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="view-reciept">
               <h3>Balance: </h3>
-              <h4 id="balance"></h4>
+              <h4 id="balance">12332155</h4>
               <button class="btn btn-primary" id="view-history" onclick="displayHistory()" class="btn btn-inline btn-primary" data-toggle="modal" data-target="#displaytransaction">View History</button>
             </div>
         </div>
@@ -152,10 +152,28 @@
   </div>
   <div class="row bg-img">
     <div class="footer">
-            <img class="img-fluid rounded-circle" src="/assets/images/fargin.jpg" width="60px" height="60px" />
-            <img class="img-fluid rounded-circle" src="/assets/images/anna.jpg" width="60px" height="60px" />
-            <img class="img-fluid rounded-circle" src="/assets/images/jon.jpg" width="60px" height="60px" />
-            <img class="img-fluid rounded-circle" src="/assets/images/phil.jpg" width="60px" height="60px" />
+      <div class="row">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3"><img class="img-fluid rounded-circle" src="/assets/images/fargin.jpg" width="60px" height="60px" />
+              <div class="rank-label-container">
+                      <span id="badge" class="label label-default rank-label">Fargin Neim</span>
+                  </div></div>
+            <div class="col-md-3"><img class="img-fluid rounded-circle" src="/assets/images/anna.jpg" width="60px" height="60px" />
+              <div class="rank-label-container">
+                      <span id="badge" class="label label-default rank-label">Anna Crespo</span>
+                  </div></div>
+            <div class="col-md-3"><img class="img-fluid rounded-circle" src="/assets/images/jon.jpg" width="60px" height="60px" />
+              <div class="rank-label-container">
+                      <span id="badge" class="label label-default rank-label">Jonathan Healy</span>
+                  </div></div>
+            <div class="col-md-3"><img class="img-fluid rounded-circle" src="/assets/images/phil.jpg" width="60px" height="60px" />
+              <div class="rank-label-container">
+                      <span id="badge" class="label label-default rank-label">A Philip Ma</span>
+                  </div></div>
+                </div>
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-12">
                 <div id="copyr">&copy 2017 CryptoFlip | <a href="https://github.com/Annacrespo/Cryptoflip" style="color:#fff;">Github</a></div>
